@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic styles for images */
+        body {
+            {% comment %} background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg"); /* You can change the color code as needed */ {% endcomment %}
+            Radial gradient from center to edge */
+            background: radial-gradient(circle, #00b8ff, yellow);
+            
+            /* Radial gradient from edge to center */
+            background: radial-gradient(circle at 80% 20%, #00b8ff, yellow);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* This ensures the background image stays fixed while scrolling */
+            margin: 0;
+        }
+
+        .image-container {
+            position: relative;
+            width: calc(30% - 2.5%); /* Calculate the width with margins */
+            float: left;
+            height: 350px;
+            margin: 2.66%;
+            transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transitions for transform and box-shadow */
+            overflow: hidden;
+        }
+
+        /* Hover effect */
+        .image-container:hover {
+            transform: scale(1.05); /* Slightly increase the size on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on hover */
+        }
+
+        /* Heart button */
+        .heart-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 32px; /* Increase the font size */
+            color: red;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Filled heart style */
+        .heart-button.filled::before {
+            content: "\2665"; /* Unicode heart symbol */
+        }
+
+        /* Empty heart style */
+        .heart-button.empty::before {
+            content: "\2661"; /* Unicode empty heart symbol */
+        }
+
+        p {
+            font-size: 2em;
+            font-family: 'Caveat', cursive;
+            margin-left: 1.66%;
+            border-bottom: 2px solid #f1f1f1;
+            width: 30%;
+            padding-bottom: 20px;
+            clear: both; /* Clear the float to start a new row */
+        }
+
+        .image-container:hover .info-button {
+            display: block; /* Show the button container on hover */
+        }
+
+        /* Style for the "More Info" button */
+        .info-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none; /* Initially hide the button container */
+        }
+
+        .info-button .info {
+            background-color: red;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+
+        @media screen and (max-width: 800px) {
+            .image-container {
+                max-width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+             .image-container {
+                max-width: 100%;
+            }
+        }
+
+        /* Set image width and height */
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Cocktail Party Decorations</p>
+
+    <!-- Images with hovering effect and heart button -->
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://s3.fabweddings.in/storage/gallery-photos/wedding-decor-cocktail-party-decor--decoration-wedding-banquet-function-hall.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://i.pinimg.com/736x/be/70/c0/be70c04a4342d284373a1caf30269922.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://s3.fabweddings.in/storage/gallery-photos/cocktail-party-decoration-lighting-light.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://m.media-amazon.com/images/I/81NRpLTtNvL._UF1000,1000_QL80_.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://s3.fabweddings.in/storage/gallery-photos/wedding-decor-cocktail-party-decor--gazebo-tree-architecture.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://i.pinimg.com/736x/d7/08/25/d70825a387c8d3bf23b5d42818a5b062.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://images.shaadisaga.com/shaadisaga_production/photos/pictures/001/902/150/new_medium/retro_luxe_2_-_atisuto.jpg?1598771250">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://blog.getyourvenue.com/wp-content/uploads/2019/12/neon-theme-1.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://www.bookeventz.com/blog-old/wp-content/uploads/80s-theme-dance-floor-hire-melbourne-3-uai-1000x1000-1-2.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://image.wedmegood.com/resized-nw/700X/wp-content/uploads/2018/10/30078177_1666148756753965_2693981578870128640_n.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://i.pinimg.com/564x/cc/17/30/cc17305d0ca5462a70dce69555ab31fc.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://i.pinimg.com/736x/e3/92/e1/e392e16329b432b166761d798132e0dc.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        // JavaScript function to toggle the heart button between filled and empty states
+        function toggleHeart(button) {
+            button.classList.toggle("empty");
+            button.classList.toggle("filled");
+        }
+    </script>
+</body>
+</html>

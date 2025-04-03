@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic styles for images */
+        body {
+            background-image: url("https://t3.ftcdn.net/jpg/02/30/89/68/360_F_230896839_Nm20FPwFCfpr0sQMC0iACJAgJyN2TIZg.jpg"); /* You can change the color code as needed */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* This ensures the background image stays fixed while scrolling */
+            margin: 0;
+        }
+
+        .image-container {
+            position: relative;
+            width: calc(30% - 2.5%); /* Calculate the width with margins */
+            height: 250px;
+            float: left;
+            margin: 1.66%;
+            transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transitions for transform and box-shadow */
+            overflow: hidden;
+        }
+
+        /* Hover effect */
+        .image-container:hover {
+            transform: scale(1.05); /* Slightly increase the size on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on hover */
+        }
+
+        /* Heart button */
+        .heart-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 32px; /* Increase the font size */
+            color: red;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Filled heart style */
+        .heart-button.filled::before {
+            content: "\2665"; /* Unicode heart symbol */
+        }
+
+        /* Empty heart style */
+        .heart-button.empty::before {
+            content: "\2661"; /* Unicode empty heart symbol */
+        }
+
+        p {
+            font-size: 2em;
+            font-family: 'Caveat', cursive;
+            margin-left: 1.66%;
+            border-bottom: 2px solid #f1f1f1;
+            width: 30%;
+            padding-bottom: 20px;
+            clear: both; /* Clear the float to start a new row */
+        }
+
+        @media screen and (max-width: 800px) {
+            .image-container {
+                max-width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+             .image-container {
+                max-width: 100%;
+            }
+        }
+
+        /* Set image width and height */
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Venue</p>
+
+    <!-- Images with hovering effect and heart button -->
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://www.avantgardeevents.co.uk/wp-content/uploads/sb-instagram-feed-images/227839136_369632371351455_1795716588173841046_nfull.jpg">
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://www.oyorooms.com/blog/wp-content/uploads/2018/02/fe-3.png">
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://decorspree.in/wp-content/uploads/2023/02/197.jpg">
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://i.etsystatic.com/18078835/r/il/19dfb1/1672598545/il_fullxfull.1672598545_4q7f.jpg">
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://deowgxgt4vwfe.cloudfront.net/uploads/1627318182_original.jpg">
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://web.s-cdn.boostkit.dev/webaction-files/5ac4f587beef72050ad4e284_product_images/c-6-631b0b5a0318cf662a5798d7.jpg">
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://deowgxgt4vwfe.cloudfront.net/uploads/1659951498_original.jpg">
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://rukminim1.flixcart.com/image/300/300/khnqqa80-0/birthday-combo/v/w/p/happy-birthday-spiderman-theme-combo-kit-pack-for-party-original-imafxmgyq8yau34h.jpeg">
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://m.media-amazon.com/images/I/81bWeSFSjKL.jpg">
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://m.media-amazon.com/images/I/61qLVSO+r2L.jpg">
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://www.lofarisbackdrop.com/cdn/shop/products/123-pack-balloon-arch-kit-theme-party-decorations-white-silver-custom-made-free-shipping-580.jpg?v=1627549876">
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://borntoparty.in/img/menus/night-birthday-decorations-on-terrace.jpg">
+        </div>
+    </div>
+    <script>
+        // JavaScript function to toggle the heart button between filled and empty states
+        function toggleHeart(button) {
+            button.classList.toggle("empty");
+            button.classList.toggle("filled");
+        }
+    </script>
+</body>
+</html>

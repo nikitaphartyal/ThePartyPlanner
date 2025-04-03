@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,500,700,900" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-family: 'PT Sans', sans-serif;
+        box-sizing: border-box;
+    }
+    body{
+            margin-top: 20px !important;
+            {% comment %} background-image: url('/static/images/packages_bg.jpg'); {% endcomment %}
+            background-size: cover;
+            /* Radial gradient from center to edge */
+background: radial-gradient(circle, #00b8ff, yellow);
+
+/* Radial gradient from edge to center */
+background: radial-gradient(circle at 80% 20%, #00b8ff, yellow);
+
+            
+        }
+        h3{
+            margin: 0;
+            font-size:25px !important;
+            font-weight:600!important;
+        }
+        a:hover,a:focus{
+            text-decoration: none;
+            outline: none;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .pricing-table{
+            background-color: #2b2f3a;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            padding-top: 20px;
+            margin: 30px 30px 0;
+        }
+        .pricing-table:after{
+            content: " ";
+            background-color: #2b2f3a;
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            transform: skew(0deg, -7deg);
+            transform-origin: left bottom 0;
+            z-index: -1;
+        }
+
+        .pricing-table .pricing-header{
+            background-color: #ea1e63;
+            margin:0 -10px;
+            padding: 15px 0;
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            position: relative;
+        }
+        .pricing-table.blue .pricing-header:before,
+        .pricing-table.blue .pricing-header:after{
+            background-color:#2889A9;
+        }
+        .pricing-table.blue .pricing-header,
+        .pricing-table.blue .pricingTable-Sign-Up,
+        .pricing-table.blue .pricingTable-Sign-Up:before{
+            background:#2991B4;
+        }
+        .pricing-table.yellow .pricing-header:before,
+        .pricing-table.yellow .pricing-header:after{
+            background-color:#FFA100;
+        }
+        .pricing-table.yellow .pricing-header,
+        .pricing-table.yellow .pricingTable-Sign-Up,
+        .pricing-table.yellow .pricingTable-Sign-Up:before{
+            background: #FFA814 ;
+        }
+        .pricing-table .pricing-header:before,
+        .pricing-table .pricing-header:after{
+            background: #fe226c;
+            content: "";
+            height: 100%;
+            left: -20px;
+            position: absolute;
+            top:50%;
+            width: 30px;
+            z-index: -1;
+        }
+        .pricing-table .pricing-header:after{
+            left: auto;
+            right: -20px;
+        }
+        .pricing-table .title{
+            position: relative;
+        }
+        .pricing-table .title:before,
+        .pricing-table .title:after{
+            border-bottom: 28px solid transparent;
+            border-left: 10px solid #fff;
+            border-top: 28px solid transparent;
+            top: 50%;
+            content: "";
+            left: -20px;
+            position: absolute;
+        }
+        .pricing-table .title:after{
+            border-left: medium none;
+            border-right: 10px solid #fff;
+            left: auto;
+            right: -20px;
+        }
+        .pricing-table .price-value{
+            background-color: #546f7a;
+            padding: 10px 0;
+            position: relative;
+            font-size: 50px;
+        }
+        .pricing-table .price-value .amount{
+            position: relative;
+        }
+        .pricing-table .price-value .amount .value{
+            position: absolute;
+            top: 0;
+            right:-20%;
+            font-size: 25px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .pricing-table .price-value:before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -12px;
+            border-top: 12px solid rgba(0,0,0,0.6);
+            border-left: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+        }
+        .pricing-table .price-value:after{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -12px;
+            border-top: 12px solid rgba(0,0,0,0.6);
+            border-right: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+        }
+        .pricing-table .pricing-content{
+            font-size: 17px;
+            color: #fff;
+            letter-spacing: 0px;
+            padding: 25px 0;
+            line-height: 40px;
+        }
+        .pricing-table .pricing-content ul li{
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .pricing-table .pricing-content ul li:last-child{
+            border-bottom: none;
+        }
+        .pricing-table .pricingTable-Sign-Up{
+            background-color: #ea1e63;
+            padding: 20px 0 20px;
+            position: relative;
+        }
+
+        .pricing-table .pricingTable-Sign-Up:before{
+            content: " ";
+            background-color: #ea1e63;
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            bottom: 0;
+            transform: skew(0deg, 7deg);
+            transform-origin: left bottom 0;
+            z-index: -1;
+        }
+
+        .pricing-table .pricingTable-Sign-Up a{
+            display: inline-block;
+            font-size: 20px;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            color: #fff;
+            position: relative;
+            padding: 5px 20px;
+            transition:all 0.3s ease 0s;
+        }
+        .pricing-table:hover .pricingTable-Sign-Up a{
+            text-shadow: 2px 4px 3px rgba(0,0,0,0.9);
+            letter-spacing: 3px;
+        }
+        .pricing-table .pricingTable-Sign-Up a:before,
+        .pricing-table .pricingTable-Sign-Up a:after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            height: 2px;
+            width: 0;
+            transition:all 0.3s ease 0s;
+        }
+        .pricing-table .pricingTable-Sign-Up a:after{
+           top: auto;
+            bottom: 0;
+            right: 0;
+           left: auto;
+        }
+        .pricing-table:hover .pricingTable-Sign-Up a:before,
+        .pricing-table:hover .pricingTable-Sign-Up a:after{
+            width: 100%;
+        }
+
+        @media screen and (max-width:990px){
+            .pricing-table{
+                margin-bottom: 70px;
+            }
+        }
+		@media screen and (max-width:767px){
+            .pricing-table{
+                margin-bottom: 180px;
+            }
+        }
+		@media screen and (max-width:600px){
+            .pricing-table{
+                margin-bottom: 120px;
+            }
+        }
+    </style>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="pricing-table">
+                    <div class="pricing-header ">
+                        <h3 class="title">Platinum</h3>
+                    </div>
+                    <div class="price-value">
+                        <span class="amount">₹ 5500</span>
+                    </div>
+                    <div class="pricing-content">
+                        <ul>
+                            <h1>BALLOON DECORATION</h1>
+                            <li>Name board</li>
+                            <li>2 Balloon pillars / 1 Balloon arch</li>
+                            <li>2 Balloon standees near the cake table</li>
+                            <li>Welcome board with balloon standee</li>
+                            <li>Hall Decoration with up to 25 Balloon bunches</li>
+                            <li>Cake table decoration</li>
+                            <li>Streamers & Curley ribbons for extra elegance</li>
+                            <li>Entrance decoration with balloon bunches</li>
+                        </ul>
+                    </div>
+                    <div class="pricingTable-Sign-Up">
+                        <a href="{% url 'Platinumsummary' %}">Order Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-5">
+                <div class="pricing-table yellow">
+                    <div class="pricing-header ">
+                        <h3 class="title">SILVER</h3>
+                    </div>
+                    <div class="price-value">
+                        <span class="amount">₹ 8500</span>
+                    </div>
+                    <div class="pricing-content">
+                        <ul>
+                            <h1>BACKDROP DECOR</h1>
+                            <li>Name board</li>
+                            <li>Screen & Drape work</li>
+                            <li>2 Balloon pillars / 1 Balloon arch</li>
+                            <li>2 Balloon standees near the cake table</li>
+                            <li>Welcome board with balloon standee</li>
+                            <li>Hall Decoration with up to 25 Balloon bunches</li>
+                            <li>Cake table decoration</li>
+                            <li>Streamers & Curley ribbons for extra elegance</li>
+                            <li>Entrance decoration with balloon bunches</li>
+                        </ul>
+                    </div>
+                    <div class="pricingTable-Sign-Up">
+                        <a href="{% url 'Silvesummary' %}">Order Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="pricing-table blue">
+                    <div class="pricing-header ">
+                        <h3 class="title">GOLD</h3>
+                    </div>
+                    <div class="price-value">
+                        <span class="amount">₹15500 </span>
+
+                    </div>
+                    <div class="pricing-content">
+                        <ul>
+                            <h1>2D THEME DECOR</h1>
+                            <li>Theme banner according to the stage size</li>
+                            <li>2 Balloon pillars & 1 rectangular balloon arch on stage</li>
+                            <li>2 Balloon standees near the cake table</li>
+                            <li>Theme cutouts</li>
+                            <li>Custom balloon arc at the entrance</li>
+                            <li>Theme based welcome board with balloon standee</li>
+                            <li>Hall Decoration with up to 25 Balloon bunches</li>
+                            <li>Cake table decoration</li>
+                            <li>Streamers & Curley ribbons for extra elegance</li>
+                            <li>Entrance decoration with balloon bunches</li>
+                        </ul>
+                    </div>
+                    <div class="pricingTable-Sign-Up">
+                        <a href="{% url 'Goldsummary' %}">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic styles for images */
+        body {
+            {% comment %} background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg"); /* You can change the color code as needed */ {% endcomment %}
+            Radial gradient from center to edge */
+            background: radial-gradient(circle, #00b8ff, yellow);
+            
+            /* Radial gradient from edge to center */
+            background: radial-gradient(circle at 80% 20%, #00b8ff, yellow);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* This ensures the background image stays fixed while scrolling */
+            margin: 0;
+        }
+
+        .image-container {
+            position: relative;
+            width: calc(30% - 2.5%); /* Calculate the width with margins */
+            float: left;
+            height: 350px;
+            margin: 2.66%;
+            transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transitions for transform and box-shadow */
+            overflow: hidden;
+        }
+
+        /* Hover effect */
+        .image-container:hover {
+            transform: scale(1.05); /* Slightly increase the size on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on hover */
+        }
+
+        /* Heart button */
+        .heart-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 32px; /* Increase the font size */
+            color: red;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Filled heart style */
+        .heart-button.filled::before {
+            content: "\2665"; /* Unicode heart symbol */
+        }
+
+        /* Empty heart style */
+        .heart-button.empty::before {
+            content: "\2661"; /* Unicode empty heart symbol */
+        }
+
+        p {
+            font-size: 2em;
+            font-family: 'Caveat', cursive;
+            margin-left: 1.66%;
+            border-bottom: 2px solid #f1f1f1;
+            width: 30%;
+            padding-bottom: 20px;
+            clear: both; /* Clear the float to start a new row */
+        }
+
+        .image-container:hover .info-button {
+            display: block; /* Show the button container on hover */
+        }
+
+        /* Style for the "More Info" button */
+        .info-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none; /* Initially hide the button container */
+        }
+
+        .info-button .info {
+            background-color: red;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+
+        @media screen and (max-width: 800px) {
+            .image-container {
+                max-width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+             .image-container {
+                max-width: 100%;
+            }
+        }
+
+        /* Set image width and height */
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Romantic Date Decorations</p>
+
+    <!-- Images with hovering effect and heart button -->
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://bycol.in/public/uploads/all/yB8NAf6zsgwGj10D4X60a2EdOSgUas8eLPderrtz.jpeg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://jusst4you.com/wp-content/uploads/2024/01/2-5-4.png">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://jusst4you.com/wp-content/uploads/2024/02/Cabana-Candlelight-Dinner-Date-9.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://media.licdn.com/dms/image/C4E12AQHjipwXmrJnZg/article-cover_image-shrink_720_1280/0/1634384007948?e=2147483647&v=beta&t=41b2g8xQAi1jesnvefeBuWkK0aHl-y1BraQayiecNcM">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://jusst4you.com/wp-content/uploads/2024/01/1-8-1.png">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://cdn.togetherv.com/dreamy-candlelight-under-the-sky-main_1713160891.webp">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://cdn.togetherv.com/outdoor-movie-date-main_1705598847.webp">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://jusst4you.com/wp-content/uploads/2024/01/2-5-4.png">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://jusst4you.com/wp-content/uploads/2023/10/Untitled-design-9.png">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://surpriseplanner.in/assets/photo/product/product_other_9190_1697877270.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://assets.cntraveller.in/photos/61f7c31d5dabee8b6de788ac/1:1/w_1080,h_1080,c_limit/maldives%20VDay%20experiences%20lead.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://i.pinimg.com/originals/a7/16/bf/a716bfc64c956f3ee53122224e8ba11b.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        // JavaScript function to toggle the heart button between filled and empty states
+        function toggleHeart(button) {
+            button.classList.toggle("empty");
+            button.classList.toggle("filled");
+        }
+    </script>
+</body>
+</html>

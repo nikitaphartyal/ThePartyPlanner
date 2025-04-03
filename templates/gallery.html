@@ -1,0 +1,1175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party-Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&display=swap');
+  :root {
+      --clr1: rgb(21, 12, 104);
+      --clr2: rgb(236, 68, 90);
+      --clr3: #fff;
+      --clr4: #000;
+      --clr5: lightgray;
+      --clr6: yellow;
+  }
+  
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      text-transform: capitalize;
+      font-family: 'PT Sans', sans-serif;
+      box-sizing: border-box;
+  }
+  
+  html {
+      font-size: 56%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+  }
+  
+  html::-webkit-scrollbar {
+      width: 1rem;
+  }
+  
+  html::-webkit-scrollbar-thumb {
+      background: var(--clr6);
+  }
+  
+  section {
+      padding: 7rem 9%;
+      margin-top: 7rem;
+  }
+  
+  section h3 {
+      font-size: 3rem;
+      color: var(--clr2);
+      text-transform: none;
+      text-align: center;
+      letter-spacing: .2rem;
+  }
+  
+  section p {
+      color: var(--clr3);
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      line-height: 2.5rem;
+      justify-content: flex-start;
+  }
+  
+  section h4 {
+      margin: 0 0 1rem 30rem;
+      width: 40%;
+      font-size: 4rem;
+      color: var(--clr3);
+      text-transform: uppercase;
+      text-align: center;
+      align-items: center;
+      letter-spacing: .2rem;
+      background: var(--clr1);
+  }
+  
+  .btn {
+      margin-top: 2rem;
+      padding: 1.3rem 4rem;
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      letter-spacing: .1rem;
+      font-weight: 600;
+      color: var(--clr3);
+      background-color: var(--clr2);
+      border: none;
+      box-shadow: 0rem 2rem 2rem rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      outline: none;
+  }
+  
+  .btn:hover {
+      transform: translateY(-1rem);
+      transition: all .5s ease;
+  }
+  
+  .title {
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: .2rem;
+  }
+  
+  .title span {
+      color: var(--clr2);
+      font-size: 4rem;
+  }
+  
+  .title p {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--clr4);
+  }
+  
+  
+  /*----------------------header section---------------*/
+  
+  .head {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      {% comment %} background: var(--clr1); {% endcomment %}
+      Radial gradient from center to edge */
+      background: radial-gradient(circle, #00b8ff, yellow);
+      
+      /* Radial gradient from edge to center */
+      background: radial-gradient(circle at 80% 20%, #00b8ff, yellow);
+      padding: 2rem 9%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  
+  .fa-heart {
+      color: red;
+  }
+  
+  .logo {
+      width:110px;
+      margin-top: 10px;
+  }
+  
+  span {
+      color: var(--clr5);
+      font-size: 2.5rem;
+  }
+  
+  .head .navbar {
+      font-size: 1.8rem;
+      justify-content: space-between;
+      font-weight: 500;
+  }
+  
+  .head .navbar a {
+      padding-left: 1.5rem;
+      color: black;
+  }
+  
+  #menu-bar {
+      display: none;
+      color: var(--clr3);
+  }
+  
+  
+  /*----------------------Home-------------*/
+  
+  .home {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/img1.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+  }
+  
+  .search-box {
+      margin: 20rem 0 0 0;
+      color: var(--clr3);
+      text-align: center;
+  }
+  
+  .search-box h1 {
+      font-size: 5.5rem;
+      text-transform: capitalize;
+      font-weight: 600;
+      letter-spacing: .2rem;
+  }
+  
+  .search-box p {
+      font-size: 1.8rem;
+      margin: .5rem 0;
+  }
+  
+  .search-field {
+      width: 25rem;
+      height: 4.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--clr2);
+  }
+  
+  @media(max-width:767px) {
+      .search-box h1 {
+          font-size: 4rem;
+      }
+      .search-field {
+          width: 15rem;
+      }
+  }
+  
+  
+  /*-------------------services--------------*/
+  
+  .services-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+  }
+  
+  .services-col {
+      height: 22rem;
+      color: rgb(236, 68, 90);
+      background: url("back-2.png");
+      background-color: lightgray;
+      background-position: center;
+      background-size: cover;
+      border-radius: 15px;
+      flex: 1 1 25rem;
+      padding: 1.2rem;
+      margin: 1.5rem;
+  }
+  
+  .services-col i {
+      padding: 2.2rem;
+      border: none;
+      background: aliceblue;
+      border-radius: 5rem;
+      font-size: 2.8rem;
+  }
+  
+  .services-col h2 {
+      padding: 1rem 0;
+      font-size: 2rem;
+      color: #000;
+  }
+  
+  .services-col p {
+      font-size: 1.2rem;
+      color: #000;
+  }
+  
+  @media (max-width:767px) {
+      .service {
+          margin-bottom: 30rem;
+      }
+  }
+  
+  
+  /*----------------------gallery section------------*/
+  
+  .gallery-list {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+  }
+  
+  .gallery .gallery-row {
+      max-width: 1300px;
+      background: rgb(245, 236, 245);
+      height: 35rem;
+      flex: 1 1 30rem;
+      padding: 1.2rem;
+      margin: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 .2rem .5rem rgb(236, 68, 90);
+  }
+  
+  .gallery-row:hover {
+      transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transform: rotate(5deg);
+  }
+  
+  .gallery .gallery-row img {
+      height: 32rem;
+      width: 100%;
+      object-fit: cover;
+  }
+  
+  .gallery-row h2 {
+      font-size: 2rem;
+      font-weight: 600;
+  }
+  
+  .gallery-row p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--clr4);
+  }
+  
+  
+  
+  /*----------------------------venue section-----------------*/
+  
+  .venue .venue-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+  
+  .venue .venue-list .venue-box {
+      flex: 1 1 50rem;
+      margin: 1rem;
+      position: relative;
+      border-radius: .6rem;
+      overflow: hidden;
+      height: 20rem;
+  }
+  
+  .venue .venue-list .venue-box img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+  }
+  
+  .venue .venue-list .venue-box .venue-info {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      background: rgba(46, 39, 40, 0.5);
+      transform: scale(1.3);
+      opacity: 0;
+      transition: 1s ease;
+  }
+  
+  .venue .venue-list .venue-box:hover .venue-info {
+      transform: scale(1);
+      opacity: 1;
+  }
+  
+  .venue .venue-list .venue-box .venue-info h2 {
+      letter-spacing: .1rem;
+      font-size: 3rem;
+  }
+  
+  .venue .venue-list .venue-box .venue-info p {
+      letter-spacing: .1rem;
+      font-size: 2rem;
+  }
+  
+  .venue .venue-list .venue-box .venue-info .btn {
+      width: 12rem;
+      height: 4rem;
+      margin: 1rem;
+      padding: .6rem;
+      letter-spacing: .1rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      background: rgb(236, 68, 90);
+      border: none;
+      border-radius: .5rem;
+  }
+  
+  
+  /*--------------------------e-invitation section-----------*/
+  
+  .invite .invitation-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+  
+  .invite .invitation-row .invitation-box {
+      flex: 1 1 25rem;
+      margin: 1rem;
+      position: relative;
+      border: .2rem dotted var(--clr2);
+      padding: 2rem;
+      border-radius: .6rem;
+      overflow: hidden;
+      height: 30rem;
+  }
+  
+  .invite .invitation-row .invitation-box:hover {
+      transition: .5s ease;
+      transform: translateY(-2rem);
+  }
+  
+  .invite .invitation-row .invitation-box img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+  }
+  
+  
+  .photographer-list {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+  }
+  
+  .photographer .photographer-row {
+      max-width: 1300px;
+      background: rgb(245, 236, 245);
+      height: 35rem;
+      flex: 1 1 30rem;
+      padding: 1.2rem;
+      margin: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 .2rem .5rem rgb(236, 68, 90);
+  }
+  
+  .photographer-row:hover {
+      transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transform: rotate(5deg);
+  }
+  
+  .photographer .photographer-row img {
+      height: 32rem;
+      width: 100%;
+      object-fit: cover;
+  }
+  
+  .photographer-row h2 {
+      font-size: 2rem;
+      font-weight: 600;
+  }
+  
+  .photographer-row p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--clr4);
+  }
+  
+  
+  
+  /*---------------------------footer section-------------*/
+  
+  footer {
+      padding: 5rem 5%;
+  }
+  
+  #contact {
+      {% comment %} background-color: var(--clr2); {% endcomment %}
+  }
+  
+  .container {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 2rem;
+  }
+  
+  .f-container h2 {
+      font-size: 2.5rem;
+      color: var(--clr3);
+      padding: 1rem 0;
+  }
+  
+  .f-container a {
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: var(--clr3);
+      padding: 1rem 0;
+      display: block;
+  }
+  
+  .f-container a:hover {
+      transform: translateX(.5rem);
+      transition: .5s ease;
+  }
+  
+  .f-container i {
+      padding-right: .5rem;
+      color: var(--clr1);
+  }
+  
+  .f-container p {
+      padding-bottom: 1rem;
+      font-size: 1.5rem;
+      color: var(--clr1);
+  }
+  
+  .f-container input {
+      width: 90%;
+      padding: 1rem;
+      background: #eee;
+      border: .2rem solid var(--clr1);
+  }
+  
+  .f-container .btn {
+      background: var(--clr1);
+      color: #fff;
+      cursor: pointer;
+      margin-top: 2rem;
+      border-radius: .2rem;
+  }
+  
+  .f-container .social i {
+      margin-top: 1rem;
+      font-size: 2rem;
+      background: var(--clr3);
+      border-radius: 1rem;
+      padding: 1rem;
+  }
+  
+  .f-container .social i:hover {
+      transform: rotate(360deg);
+      transition: 1s ease;
+  }
+  
+  .footer-content {
+      padding: 2rem 0;
+      text-align: center;
+  }
+  
+  .footer-content h1 {
+      font-size: 3rem;
+      color: #aaa;
+  }
+  
+  .copyright {
+      padding: 2rem 0;
+      text-align: center;
+      background: var(--clr1);
+      color: #fff;
+      font-size: 1.5rem;
+  }
+  
+  .copyright p {
+      font-size: 1.2rem;
+      color: white;
+  }
+  
+  
+  /*----------------------media Query-------------------*/
+  
+  @media(max-width:1200px) {
+      html {
+          font-size: 55%;
+      }
+      .head {
+          padding: 3rem;
+      }
+      section {
+          padding: 3rem 2rem;
+      }
+  }
+  
+  @media(max-width:991px) {
+      html {
+          font-size: 55%;
+      }
+      .head {
+          padding: 3rem;
+      }
+      #menu-bar {
+          display: inline-block;
+          font-size: 2rem;
+      }
+      .navbar {
+          position: absolute;
+          top: 99%;
+          left: 0;
+          right: 0;
+          background: var(--clr2);
+          clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
+      }
+      .head .navbar.active {
+          clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+      }
+      .navbar a {
+          display: block;
+          margin: 2rem;
+      }
+      .inner-content {
+          margin-top: 2rem;
+      }
+      .service,
+      .gallery-list,
+      .venue-list,
+      .invitation-row,
+      .container {
+          display: inline-block;
+      }
+      .in-box {
+          margin-bottom: 2rem;
+      }
+      .blog-content {
+          padding: 1rem;
+      }
+      section h4 {
+          font-size: 3rem;
+          margin-left: 10rem;
+          text-align: center;
+      }
+  }
+
+  .more-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-box:hover .more-info {
+  opacity: 1;
+}
+
+.btn-red {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-red:hover {
+  background-color: darkred;
+}
+
+  
+  @media(max-width:768px) {
+      .home-content {
+          display: inline-block;
+      }
+      .home .inner-content {
+          text-align: center;
+      }
+      .home .inner-content-img img {
+          width: 35rem;
+          align-items: center;
+      }
+  }
+  
+  @media(max-width:450px) {
+      html {
+          font-size: 50%;
+      }
+      .head {
+          padding: 3rem;
+      }
+  }
+  body{
+      background: #eee;
+      padding-top: 20px;
+      font-family: monospace;
+    }
+    .header{
+      border-radius: 20px 20px 0px 0px;
+      padding: 10px 0px;
+      background: purple;
+      color: #fff;
+      width: 100%;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+    .faq-item{
+      margin-bottom: 40px;
+      margin-top: 40px;
+    }
+    .faq-body{
+      display: none;
+      margin-top: 30px;
+    }
+    .faq-wrapper{
+      width: 75%;
+      margin: 0 auto;
+    }
+    .faq-inner{
+      padding: 30px;
+      background: aliceblue;
+    }
+    .faq-plus{
+      float: right;
+      font-size: 1.4em;
+      line-height: 1em;
+      cursor: pointer;
+    }
+    hr{
+      background-color: #9b9b9b;
+    }
+  
+    body {
+    margin: 0;
+    color: #6a6f8c;
+    Radial gradient from center to edge */
+    background: radial-gradient(circle, #00b8ff, yellow);
+    
+    /* Radial gradient from edge to center */
+    background: radial-gradient(circle at 80% 20%, #00b8ff, yellow);
+    font: 600 16px/18px "Open Sans", sans-serif;
+  
+  }
+  *,
+  :after,
+  :before {
+    box-sizing: border-box;
+  }
+  .clearfix:after,
+  .clearfix:before {
+    content: "";
+    display: table;
+  }
+  .clearfix:after {
+    clear: both;
+    display: block;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .login-wrap {
+    width: 100%;
+    margin: auto;
+    max-width: 500px;
+    min-height: 635px;
+    position: relative;
+    background: url(https://wallpapers.com/images/hd/foam-party-background-x5vdn38j7v8zhfu1.jpg)
+      no-repeat center;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
+  .login-html {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 90px 70px 50px 70px;
+    background: rgba(40, 57, 101, 0.9);
+  }
+  .login-html .sign-in-htm,
+  .login-html .sign-up-htm {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all 0.4s linear;
+  }
+  .login-html .sign-in,
+  .login-html .sign-up,
+  .login-form .group .check {
+    display: none;
+  }
+  .login-html .tab,
+  .login-form .group .label,
+  .login-form .group .button {
+    text-transform: uppercase;
+  }
+  .login-html .tab {
+    font-size: 22px;
+    margin-right: 15px;
+    cursor: pointer;
+    padding-bottom: 5px;
+    margin: 0 15px 10px 0;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+  }
+  .login-html .sign-in:checked + .tab,
+  .login-html .sign-up:checked + .tab {
+    color: #fff;
+    border-color: #1161ee;
+    cursor: pointer;
+  }
+  .login-form {
+    min-height: 345px;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+  .login-form .group {
+    margin-bottom: 15px;
+  }
+  .login-form .group .label,
+  .login-form .group .input,
+  .login-form .group .button {
+    width: 100%;
+    color: #fff;
+    display: block;
+  }
+  .login-form .group .input,
+  .login-form .group .button {
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .login-form .group input[data-type="password"] {
+    -webkit-text-security: circle;
+  }
+  .login-form .group .label {
+    color: #aaa;
+    font-size: 12px;
+  }
+  .login-form .group .button {
+    background: #1161ee;
+    cursor: pointer;
+  }
+  .login-form .group .button:hover {
+      background:#1454c4;
+      cursor: pointer;
+    }
+  .login-form .group label .icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    position: relative;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .login-form .group label .icon:before,
+  .login-form .group label .icon:after {
+    content: "";
+    width: 10px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    transition: all 0.2s ease-in-out 0s;
+  }
+  .login-form .group label .icon:before {
+    left: 3px;
+    width: 5px;
+    bottom: 6px;
+    transform: scale(0) rotate(0);
+  }
+  .login-form .group label .icon:after {
+    top: 6px;
+    right: 0;
+    transform: scale(0) rotate(0);
+  }
+  .login-form .group .check:checked + label {
+    color: #fff;
+  }
+  .login-form .group .check:checked + label .icon {
+    background: whitesmoke;
+  }
+  .login-form .group .check:checked + label .icon:before {
+    transform: scale(1) rotate(45deg);
+  }
+  .login-form .group .check:checked + label .icon:after {
+    transform: scale(1) rotate(-45deg);
+  }
+  .login-html
+    .sign-in:checked
+    + .tab
+    + .sign-up
+    + .tab
+    + .login-form
+    .sign-in-htm {
+    transform: rotate(0);
+  }
+  .login-html .sign-up:checked + .tab + .login-form .sign-up-htm {
+    transform: rotate(0);
+  }
+  
+  .hr {
+    height: 2px;
+    margin: 60px 0 50px 0;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .foot-lnk {
+    text-align: center;
+  }
+  
+  
+  .video-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .video-item {
+      width: 400px;
+      height: 300px;
+    }
+    
+    .video-item iframe {
+      width: 100%;
+      height: 100%;
+    }
+    
+  
+    .heading {
+      text-align: center;
+      font-size: 2.0em;
+      letter-spacing: 1px;
+      padding: 40px;
+      color: white;
+  }
+  
+  .gallery-image {
+    margin-top:40px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .gallery-image img {
+    height: 300px;
+    width: 350px;
+    transform: scale(1.0);
+    transition: transform 0.4s ease;
+  }
+  
+  .img-box {
+    box-sizing: content-box;
+    margin: 10px;
+    height: 300px;
+    width: 350px;
+    overflow: hidden;
+    display: inline-block;
+    color: white;
+    position: relative;
+    background-color: white;
+  }
+  
+  .caption {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    opacity: 0.0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .transparent-box {
+    height: 300px;
+    width: 350px;
+    background-color:rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .img-box:hover img { 
+    transform: scale(1.1);
+  }
+  
+  .img-box:hover .transparent-box {
+    background-color:rgba(0, 0, 0, 0.5);
+  }
+  
+  .img-box:hover .caption {
+    transform: translateY(-20px);
+    opacity: 1.0;
+  }
+  
+  .img-box:hover {
+    cursor: pointer;
+  }
+  
+  .caption > p:nth-child(2) {
+    font-size: 0.8em;
+  }
+  
+  
+</style>
+<body>
+    <header class="head">
+        {% comment %} <a href="#" class="logo"><i class="fas fa-heart"></i>&nbsp;Wed<span>Me</span>Good&nbsp;<i class="fas fa-heart"></i></a> {% endcomment %}
+        <nav class="navbar ">
+          {% comment %} <img src="{% static 'images/PartyPlannerLogo.png' %}" class="logo"> {% endcomment %}
+          <a href="{% url 'gallery' %}">Service</a>
+          <a href="{% url 'gallery' %}">Gallery</a>
+          <a href="{% url 'venue' %}">Venue</a>
+          <a href="{% url 'AboutUs' %}">About Us</a>
+          <a href="{% url 'faq' %}">FAQ</a>
+          <a href="{% url 'form' %}">Contact</a>
+          <a href="{% url 'Query' %}">Query</a>
+          <a href="{% url 'feedback' %}">Feedback</a>
+          {% comment %} <a href="{% url 'logout' %}">Logout</a> {% endcomment %}
+
+        </nav>
+        <div id="menu-bar"><i class="fas fa-bars"></i></div>
+    </header>
+   
+
+<html>
+<head>
+  {% comment %} <title>CSS Gallery</title> {% endcomment %}
+  <link href="https://fonts.googleapis.com/css?family=Raleway:600,900" rel="stylesheet">
+</head>
+<body>
+  {% comment %} <p class="heading">CSS Gallery</p> {% endcomment %}
+  <div class="gallery-image">
+    <div class="img-box">
+      <img src="{% static 'images/img1.png' %}" alt="" >
+      <div class="transparent-box">
+        <div class="caption">
+            <p>Romantic Date</p>
+        </div>
+      </div> 
+      <div class="more-info">
+        <a href="{% url 'romanticdate' %}"><button class="btn-red">More Info</button></a>
+      </div>
+    </div>
+
+    <div class="img-box">
+      <img src="{% static 'images/img2.png' %}" alt="" >
+      <div class="transparent-box">
+        <div class="caption">
+            <p>Birthday</p> 
+        </div>
+      </div>
+      <div class="more-info">
+        <a href="{% url 'galleryyy' %}"><button class="btn-red">More Info</button></a>
+      </div>
+    </div>
+
+    <div class="img-box">
+      <img src="{% static 'images/cocktail.webp' %}" alt="" >
+      <div class="transparent-box">
+        <div class="caption">
+          <p>Cocktail </p>
+        </div>
+      </div>
+      <div class="more-info">
+        <a href="{% url 'cocktail' %}"><button class="btn-red">More Info</button></a>
+      </div>
+    </div>
+
+    <div class="img-box">
+      <img src=" {% static 'images/img10.jpeg' %}" alt="" >
+      <div class="transparent-box">
+        <div class="caption">
+          <p>Engagement</p>
+        </div>
+      </div> 
+      <div class="more-info">
+        <a href="{% url 'engagement' %}"><button class="btn-red">More Info</button></a>
+      </div>
+    </div>
+
+    <div class="img-box">
+      <img src=" {% static 'images/img8.jpeg' %}" alt="" >
+      <div class="transparent-box">
+        <div class="caption">
+          <p>Baby Shower</p>
+        </div>
+      </div> 
+      <div class="more-info">
+        <a href="{% url 'babyshower' %}"><button class="btn-red">More Info</button></a>
+      </div>
+    </div>
+
+    <div class="img-box">
+      <img src="{% static 'images/im5.jpg' %}" alt="" >
+      <div class="transparent-box">
+        <div class="caption">
+          <p>Haldi Ceremony</p>
+        </div>
+      </div> 
+      <div class="more-info">
+        <a href="{% url 'haldi' %}"><button class="btn-red">More Info</button></a>
+      </div>
+      </div>
+
+      <div class="img-box">
+        <img src="{% static 'images/farewell.webp' %}" alt="" >
+        <div class="transparent-box">
+          <div class="caption">
+            <p>Farewell</p>
+          </div>
+        </div> 
+        <div class="more-info">
+          <a href="{% url 'farewell' %}"><button class="btn-red">More Info</button></a>
+        </div>
+        </div>
+
+        <div class="img-box">
+          <img src="{% static 'images/im5.jpg' %}" alt="" >
+          <div class="transparent-box">
+            <div class="caption">
+              <p>Haldi Ceremony</p>
+            </div>
+          </div> 
+          <div class="more-info">
+            <a href="{% url 'haldi' %}"><button class="btn-red">More Info</button></a>
+          </div>
+          </div>
+
+          <div class="img-box">
+            <img src="{% static 'images/im5.jpg' %}" alt="" >
+            <div class="transparent-box">
+              <div class="caption">
+                <p>Haldi Ceremony</p>
+              </div>
+            </div> 
+            <div class="more-info">
+              <a href="{% url 'haldi' %}"><button class="btn-red">More Info</button></a>
+            </div>
+            </div>
+
+    </div>
+  </div>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="f-container">
+                <h2>ThePartyPlanner - Your Personal Event Planner</h2><br>
+                <p>Plan your Event with Us ThePartyPlanner is an Event Planning Website </p>
+                <div>
+                    <button class="btn">Register Here</button>
+                    <a href="mailto:thepartyplannerteam@gmail.com">thepartyplannerteam@gmail.com</a>
+                </div>
+                <div class="social">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-pinterest"></i>
+                </div>
+            </div>
+                
+                <div class="f-container ">
+                    <h2>Our Newsletter</h2>
+                    <p>Subscribe for latest updates</p>
+                    <input type="text " placeholder="Enter Your Email ">
+                    <button class="btn ">Subscribe</button>
+                    </div>
+            </div>
+        </footer>
+        <div class="copyright ">
+            <p>Copyright ©2023 All Rights Reserved </p>
+            <p><b>Designed By Nikita Phartyal</b></p>
+        </div>
+</body>
+<script>
+     let menu = document.querySelector('#menu-bar');
+    let head = document.querySelector('.head .navbar');
+
+    menu.onclick = () => {
+        head.classList.toggle('active');
+    };
+
+    window.onscroll = () => {
+        head.classList.remove('active');
+        if (window.scrollY > 60) {
+            document.querySelector('#menu-bar').classList.add('active');
+        } else {
+            document.querySelector('#menu-bar').classList.remove('active');
+        }
+    };
+</script>    
+</html>
+</body>

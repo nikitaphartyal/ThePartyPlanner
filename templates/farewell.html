@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic styles for images */
+        body {
+            {% comment %} background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg"); /* You can change the color code as needed */ {% endcomment %}
+            Radial gradient from center to edge */
+            background: radial-gradient(circle, #00b8ff, yellow);
+            
+            /* Radial gradient from edge to center */
+            background: radial-gradient(circle at 80% 20%, #00b8ff, yellow);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* This ensures the background image stays fixed while scrolling */
+            margin: 0;
+        }
+
+        .image-container {
+            position: relative;
+            width: calc(30% - 2.5%); /* Calculate the width with margins */
+            float: left;
+            height: 350px;
+            margin: 2.66%;
+            transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transitions for transform and box-shadow */
+            overflow: hidden;
+        }
+
+        /* Hover effect */
+        .image-container:hover {
+            transform: scale(1.05); /* Slightly increase the size on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on hover */
+        }
+
+        /* Heart button */
+        .heart-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 32px; /* Increase the font size */
+            color: red;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Filled heart style */
+        .heart-button.filled::before {
+            content: "\2665"; /* Unicode heart symbol */
+        }
+
+        /* Empty heart style */
+        .heart-button.empty::before {
+            content: "\2661"; /* Unicode empty heart symbol */
+        }
+
+        p {
+            font-size: 2em;
+            font-family: 'Caveat', cursive;
+            margin-left: 1.66%;
+            border-bottom: 2px solid #f1f1f1;
+            width: 30%;
+            padding-bottom: 20px;
+            clear: both; /* Clear the float to start a new row */
+        }
+
+        .image-container:hover .info-button {
+            display: block; /* Show the button container on hover */
+        }
+
+        /* Style for the "More Info" button */
+        .info-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none; /* Initially hide the button container */
+        }
+
+        .info-button .info {
+            background-color: red;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+
+        @media screen and (max-width: 800px) {
+            .image-container {
+                max-width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+             .image-container {
+                max-width: 100%;
+            }
+        }
+
+        /* Set image width and height */
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Birthday Decorations</p>
+
+    <!-- Images with hovering effect and heart button -->
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://ae01.alicdn.com/kf/Sfe94e05d1a3140ee9e5aabe675ec889f2/Burst-luxury-golden-birthday-balloon-set-surprise-scene-layout-background-wall-balloon-decoration-supplies.jpg" alt="Image 1">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://i.pinimg.com/1200x/01/fc/b9/01fcb9c6feb67df433b476db6c18e936.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://m.media-amazon.com/images/I/713bvfjRYtL._AC_UF1000,1000_QL80_.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://i.etsystatic.com/18078835/r/il/19dfb1/1672598545/il_fullxfull.1672598545_4q7f.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://deowgxgt4vwfe.cloudfront.net/uploads/1627318182_original.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://web.s-cdn.boostkit.dev/webaction-files/5ac4f587beef72050ad4e284_product_images/c-6-631b0b5a0318cf662a5798d7.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://deowgxgt4vwfe.cloudfront.net/uploads/1659951498_original.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://rukminim1.flixcart.com/image/300/300/khnqqa80-0/birthday-combo/v/w/p/happy-birthday-spiderman-theme-combo-kit-pack-for-party-original-imafxmgyq8yau34h.jpeg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://m.media-amazon.com/images/I/81bWeSFSjKL.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="image-row">
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://m.media-amazon.com/images/I/61qLVSO+r2L.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://www.lofarisbackdrop.com/cdn/shop/products/123-pack-balloon-arch-kit-theme-party-decorations-white-silver-custom-made-free-shipping-580.jpg?v=1627549876">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <button class="heart-button empty" onclick="toggleHeart(this)"></button>
+            <img src="https://borntoparty.in/img/menus/night-birthday-decorations-on-terrace.jpg">
+            <div class="info-button">
+                <a href="{%url 'Package' %}"><button class="btn info">More Info</button></a>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        // JavaScript function to toggle the heart button between filled and empty states
+        function toggleHeart(button) {
+            button.classList.toggle("empty");
+            button.classList.toggle("filled");
+        }
+    </script>
+</body>
+</html>
