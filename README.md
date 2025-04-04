@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/520af95f-3861-4546-ae0a-fe4f32fe3ff7)# **ThePartyPlanner 🎉**
+# **ThePartyPlanner 🎉**
 
 ## **Overview**
 **ThePartyPlanner** is a full-stack web application designed to help users efficiently plan and organize events. With a user-friendly interface, it simplifies event management by allowing users to create, customize, and track their events seamlessly.
@@ -59,6 +59,7 @@ Now, open your browser and visit **`http://127.0.0.1:8000/`** to access the webs
 ![image](https://github.com/user-attachments/assets/e27211fa-b90b-4487-b3fa-771b02d72dc3)
 ![image](https://github.com/user-attachments/assets/e2c106d2-6e8f-43f4-85da-89f072f2dd4e)
 ![image](https://github.com/user-attachments/assets/67b7f4d1-c370-4428-baa7-9c191f4c665d)
+![image](https://github.com/user-attachments/assets/520af95f-3861-4546-ae0a-fe4f32fe3ff7)
 ![image](https://github.com/user-attachments/assets/e2a6a8a5-c40e-4e3f-9252-e91a66f0169f)
 
 **Gallery Page**
