@@ -69,5 +69,6 @@ Now, open your browser and visit **`http://127.0.0.1:8000/`** to access the webs
 ![image](https://github.com/user-attachments/assets/07fa5759-0d25-4fb3-b2ac-b01e5d90d3c4)
 
 **Payment Gateway**
-![image](https://github.com/user-attachments/assets/505e9152-d2c9-431c-8b53-1d25576c27d6)
+![image](https://github.com/user-attachments/assets/ed7fa869-990a-4857-bea7-3c86caa8957f)
+
 
